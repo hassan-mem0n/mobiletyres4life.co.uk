@@ -2145,15 +2145,22 @@ section {
 }
 
 .topbar-scroll {
+  display: flex;
   width: 100%;
   overflow: hidden;
 }
 
 .topbar-track {
   display: flex;
-  align-items: center;
+  flex-shrink: 0;
   width: max-content;
-  animation: topbarMove 28s linear infinite;
+  animation: endlessScroll 20s linear infinite !important;
+}
+
+.topbar-group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 .topbar-item {
@@ -2161,14 +2168,13 @@ section {
   align-items: center;
   gap: 9px;
   padding: 0 35px;
+  flex-shrink: 0;
   font-size: 13px;
   font-weight: 600;
-  flex-shrink: 0;
 }
 
 .topbar-item i {
   color: var(--gold, #c9a96e);
-  font-size: 15px;
 }
 
 .topbar-item a {
@@ -2176,45 +2182,18 @@ section {
   text-decoration: none;
 }
 
-.topbar-item a:hover {
-  color: var(--gold, #c9a96e);
-}
-
-.topbar:hover .topbar-track {
-  animation-play-state: paused;
-}
-
 .pulse-dot {
   width: 8px;
   height: 8px;
   background: #25c76a;
   border-radius: 50%;
-  display: inline-block;
-  box-shadow: 0 0 0 4px rgba(37, 199, 106, .15);
 }
 
-@keyframes topbarMove {
+@keyframes endlessScroll {
   from {
     transform: translateX(0);
   }
   to {
     transform: translateX(-50%);
-  }
-}
-
-@media (max-width: 576px) {
-  .topbar {
-    padding: 10px 0;
-  }
-
-  .topbar-item {
-    padding: 0 22px;
-    font-size: 12px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .topbar-track {
-    animation: none;
   }
 }
