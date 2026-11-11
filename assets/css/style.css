@@ -2126,6 +2126,8 @@ section {
     align-items: flex-start;
   }
 }
+
+
 @media (max-width:991px) {
   .wa-float{
     display: none;
